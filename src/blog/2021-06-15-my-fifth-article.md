@@ -8,12 +8,111 @@ imageAlt: This is a test
 description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis accusantium sit illo neque rem omnis quaerat, nam similique vitae delectus ad magni vel quo maxime, magnam placeat. Reprehenderit, distinctio aliquam?
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id leo in vitae turpis massa. Amet tellus cras adipiscing enim eu turpis egestas pretium aenean. Ornare aenean euismod elementum nisi quis eleifend. Amet tellus cras adipiscing enim eu turpis. Nisi vitae suscipit tellus mauris. Mauris in aliquam sem fringilla ut morbi tincidunt augue. Mi eget mauris pharetra et. Et tortor at risus viverra. Id eu nisl nunc mi ipsum faucibus vitae. Malesuada nunc vel risus commodo viverra maecenas. Et netus et malesuada fames ac turpis egestas sed. Massa vitae tortor condimentum lacinia quis. Eu augue ut lectus arcu bibendum at varius. Enim nec dui nunc mattis enim ut tellus elementum sagittis. In fermentum et sollicitudin ac orci. Nec sagittis aliquam malesuada bibendum arcu vitae elementum. Et ligula ullamcorper malesuada proin libero nunc consequat interdum varius. Id porta nibh venenatis cras sed felis eget velit. In hac habitasse platea dictumst.
+**Title:** Exploring Solutions for the Valid Anagram Problem
 
-Amet est placerat in egestas erat imperdiet sed euismod. Elementum pulvinar etiam non quam. Pharetra convallis posuere morbi leo urna molestie. Varius duis at consectetur lorem donec massa. Id semper risus in hendrerit gravida rutrum quisque. Adipiscing elit pellentesque habitant morbi tristique senectus. Tortor pretium viverra suspendisse potenti. Aenean et tortor at risus viverra adipiscing at in. Venenatis lectus magna fringilla urna porttitor rhoncus dolor. Eu augue ut lectus arcu bibendum at varius vel pharetra. Facilisis magna etiam tempor orci eu. Habitant morbi tristique senectus et. Eu facilisis sed odio morbi quis commodo. Ultrices tincidunt arcu non sodales neque sodales ut etiam sit. Nulla posuere sollicitudin aliquam ultrices sagittis. At imperdiet dui accumsan sit amet nulla. Nec feugiat in fermentum posuere urna nec tincidunt praesent semper. Tortor id aliquet lectus proin nibh. Tellus at urna condimentum mattis.
+**Question Number and Name:** LeetCode Problem 242 - Valid Anagram
 
-Urna id volutpat lacus laoreet non curabitur gravida arcu ac. Accumsan tortor posuere ac ut consequat. Suspendisse sed nisi lacus sed viverra tellus. Amet nulla facilisi morbi tempus. Maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum. Maecenas accumsan lacus vel facilisis volutpat. Fringilla phasellus faucibus scelerisque eleifend. Enim neque volutpat ac tincidunt vitae semper quis. Id eu nisl nunc mi ipsum. Ligula ullamcorper malesuada proin libero nunc. Bibendum at varius vel pharetra vel turpis nunc eget.
+Please solve the following algorithmic problem step-by-step, and present your solution with a detailed explanation, code implementation, and complexity analysis. Use the structure outlined below:
 
-Ipsum dolor sit amet consectetur adipiscing elit duis tristique sollicitudin. Convallis a cras semper auctor. Congue eu consequat ac felis donec et odio. Maecenas ultricies mi eget mauris pharetra. Vel facilisis volutpat est velit egestas dui id ornare. Tempor nec feugiat nisl pretium fusce id velit ut tortor. Mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor. Lectus nulla at volutpat diam ut venenatis tellus in. Pellentesque massa placerat duis ultricies. Augue eget arcu dictum varius duis at consectetur lorem.
+---
 
-Felis donec et odio pellentesque diam volutpat commodo. Donec massa sapien faucibus et. Ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae. A diam sollicitudin tempor id eu nisl. Orci nulla pellentesque dignissim enim sit amet venenatis urna cursus. Cursus turpis massa tincidunt dui. Luctus accumsan tortor posuere ac ut consequat semper viverra. Amet luctus venenatis lectus magna fringilla urna porttitor rhoncus dolor. Leo vel fringilla est ullamcorper. Auctor elit sed vulputate mi sit amet mauris. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis.
+*Problem Statement:*
+
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+*Example:*
+
+*Input:*
+s = "anagram", t = "nagaram"
+*Output:*
+true
+
+Explanation: 
+Both strings contain the same letters but in a different order.
+
+*Approach:*
+
+### 1. Sorting Approach
+
+This approach involves sorting both strings and checking if they are equal.
+
+#### Algorithm:
+
+1. Sort both strings.
+2. Compare the sorted strings.
+
+#### Code:
+
+python
+```python
+def isAnagram(s: str, t: str) -> bool:
+    return sorted(s) == sorted(t)
+```
+
+#### Complexity Analysis:
+
+- *Time Complexity:* O(nlogn) - Sorting both strings.
+- *Space Complexity:* O(n) - Space required for sorted strings.
+
+Javascript
+```javascript
+var isAnagram = function(s, t) {
+    return s.split('').sort().join('') === t.split('').sort().join('');
+};
+```
+
+#### Complexity Analysis:
+
+- *Time Complexity:* O(nlogn) - Sorting both strings.
+- *Space Complexity:* O(n) - Space required for sorted strings.
+
+### 2. Hashmap Approach
+
+In this approach, we use a hashmap to count the occurrences of characters in both strings and then compare the counts.
+
+#### Algorithm:
+
+1. Create two hashmaps to count character occurrences for both strings.
+2. Compare the hashmaps.
+
+#### Code:
+
+python
+```python
+def isAnagram(s: str, t: str) -> bool:
+    if len(s) != len(t):
+        return False
+    count_s = collections.Counter(s)
+    count_t = collections.Counter(t)
+    return count_s == count_t
+```
+
+#### Complexity Analysis:
+
+- *Time Complexity:* O(n) - Counting occurrences in both strings.
+- *Space Complexity:* O(n) - Space required for hashmaps.
+
+Javascript
+```javascript
+var isAnagram = function(s, t) {
+    if (s.length !== t.length) return false;
+    const count = {};
+    for (let char of s) {
+        count[char] = (count[char] || 0) + 1;
+    }
+    for (let char of t) {
+        if (!count[char]) return false;
+        count[char]--;
+    }
+    return true;
+};
+```
+
+#### Complexity Analysis:
+
+- *Time Complexity:* O(n) - Counting occurrences in both strings.
+- *Space Complexity:* O(n) - Space required for hashmap.
+
+*Conclusion:*
+
+Both approaches provide solutions to determine if two strings are anagrams. The sorting approach is simpler but less efficient compared to the hashmap approach, which has a better time complexity. Depending on the constraints of the problem and the size of the input strings, one might be preferred over the other.
